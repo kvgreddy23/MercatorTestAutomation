@@ -8,21 +8,13 @@ To add more test or to run on the local machine you need some basic set up
 
 ### Configuration: ###
 
-1. Install latest Java Development Kit (JDK) (At the moment this project is using JDK 1.8)
+1. Install latest Java Development Kit (JDK) (At the moment this project is using JDK 11.0)
 
 2. Install Maven
 
 3. Use one of the Eclipse or Intellij IDE for creating more test scripts
 
 4. Install git
-
-### How to get the project to your local machine ###
-
-1. To get the project on to your local machine you need to have bitbucket account and should be a member of national trust team
-
-2. Clone the project using git
-
-Command: git clone https://yourusername@bitbucket.org/nationaltrust/website-frontend-tests.git
 
 (or)
 
