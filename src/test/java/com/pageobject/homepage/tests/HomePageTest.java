@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class HomePageTest extends PageBase {
 
     @Test
-    public void navigateToHomePage() {
+    public void addHighestPriceProductToCart() {
           String homePageHeaderText = homePage().getHomePageHeader();
           homePage().selectHighestPrice();
         //Assert.assertTrue(homePageHeaderText.contains("Homepage"));

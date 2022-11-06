@@ -81,16 +81,40 @@ while ((list_of_dress_price.size()>=i-1))
     }
     i++;
 }
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".shopping_cart > .ajax_cart_quantity")));
+
+        closeWindow();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".shopping_cart >a > .ajax_cart_quantity")));
         String cartItems = driver.findElement(By.cssSelector(".shopping_cart")).getText();
         Assert.assertTrue(!cartItems.contains("empty"));
         //Low price is
         int low_price = array_list_values_product_prices.get(0);
 
         //Below will display both High and Low Price of item in chart
-        System.out.println("High dress Price is: " + high_price + " Dress name is: " + map_final_products.get(high_price));
-        System.out.println("Low dress Price is: " + low_price + " Dress name is: " + map_final_products.get(low_price));
+//        System.out.println("High dress Price is: " + high_price + " Dress name is: " + map_final_products.get(high_price));
+//        System.out.println("Low dress Price is: " + low_price + " Dress name is: " + map_final_products.get(low_price));
 
 
     }
+
+    public void closeWindow(){
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+                .withTimeout(Duration.ofSeconds(50))
+                .pollingEvery(Duration.ofSeconds(5))
+                .ignoring(NoSuchElementException.class);
+               switchToThePopUpWindow();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".cross")));
+        driver.findElement(By.cssSelector(".cross")).click();
+        driver.getWindowHandles().stream().forEachOrdered((i)-> {driver.switchTo().window(i);});
+           }
+
+    public void switchToThePopUpWindow(){
+
+        driver.getWindowHandles().stream().forEachOrdered((i)-> {driver.switchTo().window(i);});
+        try { Thread.sleep(5000);}
+        catch(Exception e){}
+
+
+
+    }
+
 }
